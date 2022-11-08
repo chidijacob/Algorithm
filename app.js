@@ -46,6 +46,54 @@ function isPowerOfTwo(n) {
     }
     return true
 }
-console.log(isPowerOfTwo(1))
-console.log(isPowerOfTwo(2))
-console.log(isPowerOfTwo(5))
+// console.log(isPowerOfTwo(1))
+// console.log(isPowerOfTwo(2))
+// console.log(isPowerOfTwo(5))
+
+function recursiveFibonacci(n) {
+    if (n<2) {return n}
+    return recursiveFibonacci(n-1) + recursiveFibonacci(n-2)
+}
+// console.log(recursiveFibonacci(0))
+// console.log(recursiveFibonacci(1))
+// console.log(recursiveFibonacci(6))
+
+function recursiveFactorial(n) {
+    if(n===0) {return 1}
+    return n * recursiveFactorial(n-1)
+}
+// console.log(recursiveFactorial(0))
+// console.log(recursiveFactorial(1))
+// console.log(recursiveFactorial(5))
+
+function linearSearch(arr, t) {
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i] === t) {
+            return i
+        }
+    }
+    return -1
+}
+// console.log(linearSearch([-5,2,10,4,6], 10));
+// console.log(linearSearch([-5,2,10,4,6], 6));
+// console.log(linearSearch([-5,2,10,4,6], 20));
+
+function binarySearch(arr, t) {
+    let leftIndex = 0;
+    let rightIndex = arr.length - 1;
+    while(leftIndex <= rightIndex) {
+        let middleIndex = Math.floor((leftIndex + rightIndex)/2);
+        if(t === arr[middleIndex]) {
+            return middleIndex 
+        }
+        if(t < arr[middleIndex]) {
+            rightIndex = middleIndex - 1;
+        } else {
+            leftIndex = middleIndex + 1;
+        }
+    }
+    return -1
+}
+// console.log(binarySearch([-5,2,4,6,10], 10));
+// console.log(binarySearch([-5,2,4,6,10], 6));
+// console.log(binarySearch([-5,2,4,6,10], 20));
