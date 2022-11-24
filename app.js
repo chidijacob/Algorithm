@@ -116,6 +116,77 @@ function search(arr, target, leftIndex, rightIndex) {
         return search(arr, target, middleIndex+1, rightIndex)
     }
 }
-console.log(binarySearch([-5,2,4,6,10], 10));
-console.log(binarySearch([-5,2,4,6,10], 6));
-console.log(binarySearch([-5,2,4,6,10], 20));
+// console.log(binarySearch([-5,2,4,6,10], 10));
+// console.log(binarySearch([-5,2,4,6,10], 6));
+// console.log(binarySearch([-5,2,4,6,10], 20));
+
+//finding the longest word in a string
+function findLongestWordLength(str) {
+    let longestLength = 0;
+    let currentLength = 0;
+    for(let i=0; i<str.length; i++) {
+      if(str[i]===' ') {
+        if(currentLength > longestLength) {
+          longestLength = currentLength;
+        }
+        currentLength = 0;
+      } else {
+        currentLength ++;
+      }
+      if(currentLength>longestLength) {
+        longestLength=currentLength;
+      }
+    } 
+    return longestLength;
+  }
+  //console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+  //Return largest number in array
+  function largestOfFour(arr) {
+    let newArr = [];
+    for(let i=0; i<arr.length; i++) {
+       let largestNum = arr[i][0]
+        for(let j=1; j<arr[i].length; j++) {
+          if(arr[i][j] > largestNum) {
+            largestNum = arr[i][j];
+          } 
+        } 
+        newArr[i] = largestNum
+      }
+    
+    return newArr;
+  }
+//console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+// confirm the ending
+function confirmEnding(str, target) {
+    let re = new RegExp(target + '$', 'i');
+    let result = re.test(str);
+    return result
+  }
+//console.log(confirmEnding("Bastian", "n"));
+
+//confirm the ending
+function confirmEnding(str, target) {
+    if(str.slice(-target.length)===target) {
+      return true
+    }
+    return false
+  }
+//console.log(confirmEnding("Bastian", "n"));
+
+//repeat a string repeat a string
+function repeatStringNumTimes(str, num) {
+    let totalStr = "";
+    for(let i=0; i<num; i++) {
+      totalStr += str
+    } return totalStr
+  }
+//console.log(repeatStringNumTimes("abc", 3));
+
+//repeat a string repeat a string
+function repeatStringNumTimes(str, num) {
+    if(num<1) {return ""}
+    return str + repeatStringNumTimes(str, num-1)
+  }
+//console.log(repeatStringNumTimes("abc", 3));
